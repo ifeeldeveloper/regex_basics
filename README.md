@@ -1,14 +1,30 @@
 # Regex Basics
 
 ### Text/String on regular expressions performed
-txt = """I love Python. I have started my class from 2025-12-01. I think it will be completed by 2026-02-01. We learned python first. Our class start from 8 AM and ends in 8:30 AM. Material links can be found at jagadishbhatta.com.np. We do practice at colab.google.com. We are now looking at www.regex101.com. My email is jagadishbhatta16@gmail.com. Some people create email as test@yahoo.com. Our class members are Mr Kalyan, Mr Roshan, Ms. Barsha, Mr. Jagdish but Mr. Bishal is absent today. Python is fun. We see 2+2=4 but interestingly 2*2 is also 4. What is this? Rat, Cat and Hat have similar sound.Bat, Sat is also same. Bat BatBat BatBatBat BatBatBatBat  BatBatBatBatBat. My number is 9876543210 another one is 9868584838. Non Nepali number i guess 1234567890 and random number 98745632101236547890.
-Dates 2025.05.01 2024/01/03 20210908 2025-02/05 2022-02-02. I bought pen for Rs 20, Apple for Rs 300 and Orange for Rs 200. Their weights were 1kg and 2kg.
-9874563210
-9876541230123456789868546987
-9856320147 asdf
-asdf 9865742310
-asdf 98657423101235
-jkl 9856320147 asdf
+txt = """I love Python. I have started my class from 2025-12-01. I think it will be completed by 2026-02-01. We learned python first. Our class start from 8 AM and ends in 8:30 AM. Material links can be found at sapkotarabindra.com.np. You can visit my portfolio website as well at jagadishbhatta.com.np. We do practice at colab.google.com. and Jupyter Notebook. We are now looking at www.regex101.com. My email is jagadishbhatta16@gmail.com. Some people create email as test@yahoo.com. Our class members are Mr Kalyan, Mr Roshan, Ms. Barsha, Mr. Jagdish but Mr. Bishal is absent today. Python is fun. We see 2+2=4 but interestingly 2*2 is also 4. What is this? Rat, Cat and Hat have similar sound.Bat, Sat is also same. Bat BatBat BatBatBat BatBatBatBat  BatBatBatBatBat. My number is 9876543210 another one is 9868584838. Non Nepali number i guess 1234567890 and random number 98745632101236547890.
+Dates 2025.05.01 2024/01/03 20210908 2025-02/05 2022-02-02. I bought pen for Rs 20, Apple for Rs 300 and Orange for Rs 200. Their weights were 1kg and 2kg.<br>
+9874563210<br>
+9876541230123456789868546987<br>
+9856320147 asdf<br>
+asdf 9865742310<br>
+asdf 98657423101235<br>
+jkl 9856320147 asdf<br>
+The cat sat on the mat.<br>
+There are 3 apples and 12 oranges<br>
+(+977) 456-7890<br>
++977 9868-888-764<br>
+Hello, its me Jagadish.<br>
+hello, I am learning regex and hello Hello<br>
+\+ is a quantifier which match one or more repetition of preceding. There are two types of groups in regex, capturing(default group) and non capturing group.<br> 
+It weights 12kg, 14m, 34kg<br>
+9843468713 / 984-3468-713 / +9779843468713.<br>
+abc.def.ghi.jkx
+```html
+<div>
+<p> This is a paragraph tag </p> 
+<a href = "www.jagadishbhatta.com.np"> visit my website</a>
+</div>
+```
 """
 
 ## Quantifier
@@ -127,3 +143,30 @@ jkl 9856320147 asdf
 * ```9\d{9}\b```
 * ```\b9\d{9}```
 * ```\b9\d{9}\b```
+
+# Regex Exercises with questions
+1. Match the word "cat" in a sentence. (Example text: "The cat sat on the mat.“)
+* rgx >> ```cat```
+2. Find digit in a sentence. ("There are 3 apples and 12 oranges.“) [3,1,2]
+* rgx >> ```\d```
+3. Match any lowercase letter from word.
+* rgx >> ```[a-z]```
+4. Match all 5-letter word in a text
+* rgx >> ```\b[A-Za-z]{5}\b```
+5. Match email address from the text
+* rgx >> ```\w+@[a-z]+\.com```
+6. Match phone numbers in the format (+977) 456-7890 (+977 9868-888-764)
+* rgx >> ```\+977 \d{4}-\d{3}-\d{3}```
+7. Match string that starts with hello at beginning of line
+* rgx >> ```^[Hh][a-z]+```
+8. Match word that ends with ing. [Match word only ensuring ing is after it]
+* rgx >> ```\b[A-Za-z]+ing\b```
+9. You have a document with text: 12kg, 14m, 34kg … . Capture weights from it
+* rgx >> ```\d+(?=kg|m)```
+10. You have a html document. Match tag names on it. Example: div, a, p
+* rgx >> ```(?<=<)[a-zA-Z]+[0-9]*```
+11. You can have numbers as 9843468713 / 984-3468-713 / +9779843468713. Capture all phone
+number following these patterns from the document
+* rgx >> ```(?:\+977)?9\d{2}-?\d{4}-?\d{3}```
+12. Match this pattern "abc.def.ghi.jkx"
+* rgx >> ```^...\....\....\....$```
