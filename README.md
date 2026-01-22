@@ -1,5 +1,6 @@
 # regex_basics
 
+## Text/String on regular expressions are performed
 txt = """I love Python. I have started my class from 2025-12-01. I think it will be completed by 2026-02-01. We learned python first. Our class start from 8 AM and ends in 8:30 AM. Material links can be found at sapkotarabindra.com.np. We do practice at colab.google.com. We are now looking at www.regex101.com. My email is rabindrasapkota2@gmail.com. Some people create email as test@yahoo.com. Our class members are Mr Kalyan, Mr Roshan, Ms. Barsha, Mr. Jagdish but Mr. Bishal is absent today. Python is fun. We see 2+2=4 but interestingly 2*2 is also 4. What is this? Rat, Cat and Hat have similar sound.Bat, Sat is also same. Bat BatBat BatBatBat BatBatBatBat  BatBatBatBatBat. My number is 9876543210 another one is 9868584838. Non Nepali number i guess 1234567890 and random number 98745632101236547890.
 Dates 2025.05.01 2024/01/03 20210908 2025-02/05 2022-02-02. I bought pen for Rs 20, Apple for Rs 300 and Orange for Rs 200. Their weights were 1kg and 2kg.
 9874563210
@@ -57,72 +58,72 @@ jkl 9856320147 asdf
 
 # Regular Expressions - Practice these experessions on regex101.com
 ### 1. Literal match
-* ->Python
-* ->Cat
-* ->at
-* ->python
+* Python
+* Cat
+* at
+* python
 
 ### 2. Character Class
-* ->[BHC]at 
-* ->[A-Z]
-* ->[a-z]
-* ->[0-9]
-* ->[e-s]
-* ->[A-Za-z0-9]
-* ->[E-Sa-j]
-* ->[A-Za-z248]
+* [BHC]at 
+* [A-Z]
+* [a-z]
+* [0-9]
+* [e-s]
+* [A-Za-z0-9]
+* [E-Sa-j]
+* [A-Za-z248]
 
 ### 3. (exp|exp|exp)
-* ->(Cat|Hat|Rat)
-* ->(Mr|Ms)
-* ->(Mr|Ms)\. [A-Za-z]+
-* ->(Mr|Ms)\. ([A-Za-z]+)
+* (Cat|Hat|Rat)
+* (Mr|Ms)
+* (Mr|Ms)\. [A-Za-z]+
+* (Mr|Ms)\. ([A-Za-z]+)
 
 ### 4. gmail/ site matching from above string
-* ->[A-Za-z0-9]+@[a-z]+\.[a-z]+ 
-* ->[A-Za-z0-9]+\.[a-z]+\.[a-z]+
-* ->[A-Za-z0-9]+\.[a-z0-9]+\.[a-z]+
-* -> (www\.)?[A-Za-z0-9]+\.[a-z]+\.([a-z]+)?
+* [A-Za-z0-9]+@[a-z]+\.[a-z]+ 
+* [A-Za-z0-9]+\.[a-z]+\.[a-z]+
+* [A-Za-z0-9]+\.[a-z0-9]+\.[a-z]+
+*  (www\.)?[A-Za-z0-9]+\.[a-z]+\.([a-z]+)?
 
 ### 5. 
-* ->(Bat){2}
-* ->(Bat){2,3}
-* ->(Bat){3,}
+* (Bat){2}
+* (Bat){2,3}
+* (Bat){3,}
 
 ### 6. Number Matching
-* ->[0-9]{10}
-* ->9[0-9]{9}
+* [0-9]{10}
+* 9[0-9]{9}
 
 ### 7. Date Matching
-* ->[0-9]{4}-[0-9]{2}-[0-9]{2}
-* ->[12][0-9]{3}-[0-9]{2}-[0-9]{2}
-* ->[12][0-9]{3}[-\.][0-9]{2}[-\.][0-9]{2}
-* ->[12][0-9]{3}[-\.\/][0-9]{2}[-\.\/][0-9]{2}
-* ->[12][0-9]{3}[-\.\/]?[0-9]{2}[-\.\/]?[0-9]{2}
-* ->[12][0-9]{3}([-\.\/])?[0-9]{2}\1?[0-9]{2}
-* ->([12][0-9]{3})([-\.\/])?([0-9]{2})\2?([0-9]{2})
-* ->([12][0-9]{3})([-\.\/])?([0-9]{2})\2?\3(matches same month and same date value)
-* ->([12]\d{3})([-\.\/])?(\d{2})\2?\3
-* ->([12]\d{3})([-\.\/])?(\d{2})\2?(\d{2})
+* [0-9]{4}-[0-9]{2}-[0-9]{2}
+* [12][0-9]{3}-[0-9]{2}-[0-9]{2}
+* [12][0-9]{3}[-\.][0-9]{2}[-\.][0-9]{2}
+* [12][0-9]{3}[-\.\/][0-9]{2}[-\.\/][0-9]{2}
+* [12][0-9]{3}[-\.\/]?[0-9]{2}[-\.\/]?[0-9]{2}
+* [12][0-9]{3}([-\.\/])?[0-9]{2}\1?[0-9]{2}
+* ([12][0-9]{3})([-\.\/])?([0-9]{2})\2?([0-9]{2})
+* ([12][0-9]{3})([-\.\/])?([0-9]{2})\2?\3(matches same month and same date value)
+* ([12]\d{3})([-\.\/])?(\d{2})\2?\3
+* ([12]\d{3})([-\.\/])?(\d{2})\2?(\d{2})
 
 ### 8.
-* ->Rs \d+
-* ->Rs (\d+)
-* ->(?<=Rs )\d+(look behind)
-* ->(?<!Rs )\d+
-* ->\d+(?=kg)(look ahead)
+* Rs \d+
+* Rs (\d+)
+* (?<=Rs )\d+(look behind)
+* (?<!Rs )\d+
+* \d+(?=kg)(look ahead)
 
 ### 9.
-* ->(Mr|Ms|Mrs)\.?\s[A-Za-z]+
-* ->M[rs]\.?\s[A-Za-z]+
-* ->(?<=M[rs]\.\s)[A-Za-z]+
-* ->(?<=M[rs]\.\s)[A-Za-z]+|(?<=M[rs]\s)[A-Za-z]+
+* (Mr|Ms|Mrs)\.?\s[A-Za-z]+
+* M[rs]\.?\s[A-Za-z]+
+* (?<=M[rs]\.\s)[A-Za-z]+
+* (?<=M[rs]\.\s)[A-Za-z]+|(?<=M[rs]\s)[A-Za-z]+
 
 ### 10. Anchor + bound
-* ->9\d{9}
-* ->^9\d{9}
-* ->9\d{9}$
-* ->^9\d{9}$
-* ->9\d{9}\b
-->\b9\d{9}
-->\b9\d{9}\b
+* 9\d{9}
+* ^9\d{9}
+* 9\d{9}$
+* ^9\d{9}$
+* 9\d{9}\b
+* \b9\d{9}
+* \b9\d{9}\b
