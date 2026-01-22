@@ -1,7 +1,7 @@
 # Regex Basics
 
 ### Text/String on regular expressions performed
-txt = """I love Python. I have started my class from 2025-12-01. I think it will be completed by 2026-02-01. We learned python first. Our class start from 8 AM and ends in 8:30 AM. Material links can be found at jagadishbhatta.com.np. We do practice at colab.google.com. We are now looking at www.regex101.com. My email is jagadishbhatta123@gmail.com. Some people create email as test@yahoo.com. Our class members are Mr Kalyan, Mr Roshan, Ms. Barsha, Mr. Jagdish but Mr. Bishal is absent today. Python is fun. We see 2+2=4 but interestingly 2*2 is also 4. What is this? Rat, Cat and Hat have similar sound.Bat, Sat is also same. Bat BatBat BatBatBat BatBatBatBat  BatBatBatBatBat. My number is 9876543210 another one is 9868584838. Non Nepali number i guess 1234567890 and random number 98745632101236547890.
+txt = """I love Python. I have started my class from 2025-12-01. I think it will be completed by 2026-02-01. We learned python first. Our class start from 8 AM and ends in 8:30 AM. Material links can be found at jagadishbhatta.com.np. We do practice at colab.google.com. We are now looking at www.regex101.com. My email is jagadishbhatta16@gmail.com. Some people create email as test@yahoo.com. Our class members are Mr Kalyan, Mr Roshan, Ms. Barsha, Mr. Jagdish but Mr. Bishal is absent today. Python is fun. We see 2+2=4 but interestingly 2*2 is also 4. What is this? Rat, Cat and Hat have similar sound.Bat, Sat is also same. Bat BatBat BatBatBat BatBatBatBat  BatBatBatBatBat. My number is 9876543210 another one is 9868584838. Non Nepali number i guess 1234567890 and random number 98745632101236547890.
 Dates 2025.05.01 2024/01/03 20210908 2025-02/05 2022-02-02. I bought pen for Rs 20, Apple for Rs 300 and Orange for Rs 200. Their weights were 1kg and 2kg.
 9874563210
 9876541230123456789868546987
@@ -56,7 +56,7 @@ jkl 9856320147 asdf
 * \b => Space around words
 * \B => Non word boundary. i.e no space around word
 
-# Regular Expressions - Practice these experessions on regex101.com
+# Regular Expressions - Practice these on regex101.com
 ### 1. Literal match
 * ```Python```
 * ```Cat```
