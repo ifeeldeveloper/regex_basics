@@ -10,117 +10,119 @@ asdf 98657423101235
 jkl 9856320147 asdf
 """
 
-# Quantifier
-+ ==> One or more repetition of preceding regex
-* ==> Zero or more repetition of preceding regex
-? ==> Zero or one repetition of preceding regex
+## Quantifier
+* \+ ==> One or more repetition of preceding regex
+* \* ==> Zero or more repetition of preceding regex
+* ? ==> Zero or one repetition of preceding regex
 
-+ = {1, }
+\+ = {1, }
+
 ? = {0, 1}
-* = {0, }
 
-# Group 
-() -> default capturing group
-(?:) -> non capturing group
+\* = {0, }
 
-# Look Ahead and Look Behind
-look behind => eg.->(?<=Rs )\d+
-look ahead => eg.->\d+(?=kg)
+## Group 
+* () -> default capturing group
+* (?:) -> non capturing group
 
-# Special Character with special meaning
-. ==> Matches any character except new line
-+ ==> [A-Za-z]+ -> matches one or more
-* ==>
-? ==> May or may not matches
-^ ==> Match happens at beginning of string 
-$ ==> Match happens at the end of string
-| ==> Matches regex expressions preceeding or following it
-[...] ==> Matches range of values inside the given brackets (eg. [A-Za-Z0-9]
-(...) ==> Provide regex inside it and Match for it
-[^...] ==> Matches characters that doesn't matches regex inside bracket (eg. [^0-9] matches except numbers)
-(R|S) ==> R and S are multiple regexes. Matches R or S
-\ ==> escape character
+## Look Ahead and Look Behind
+* look behind => eg. (?<=Rs )\d+
+* look ahead => eg. \d+(?=kg)
 
-# Special Character section 2
-\t ==> Tab
-\n ==> New Line
-\d ==> Any digits between 0-9
-\D ==> Any non-digit character or ([^\d])
-\s ==> White Space, Space, Tab, New Line
-\S ==> Non White Space
-\w ==> Any alphanumeric characters (A-Z,a-z,0-9)
-\W ==> Non alphanumeric characters
-\b ==> Space around words
-\B ==> Non word boundary. i.e no space around word
+## Special Character with special meaning
+* . ==> Matches any character except new line
+* \+ ==> [A-Za-z]+ -> matches one or more
+* \* ==>
+* ? ==> May or may not matches
+* ^ ==> Match happens at beginning of string 
+* $ ==> Match happens at the end of string
+* | ==> Matches regex expressions preceeding or following it
+* [...] ==> Matches range of values inside the given brackets (eg. [A-Za-Z0-9]
+* (...) ==> Provide regex inside it and Match for it
+* [^...] ==> Matches characters that doesn't matches regex inside bracket (eg. [^0-9] matches except numbers)
+* (R|S) ==> R and S are multiple regexes. Matches R or S
+* \ ==> escape character
 
-# Regular Expressions
-1. Literal match
-->Python
-->Cat
-->at
-->python
+## Special Character section 2
+* \t ==> Tab
+* \n ==> New Line
+* \d ==> Any digits between 0-9
+* \D ==> Any non-digit character or ([^\d])
+* \s ==> White Space, Space, Tab, New Line
+* \S ==> Non White Space
+* \w ==> Any alphanumeric characters (A-Z,a-z,0-9)
+* \W ==> Non alphanumeric characters
+* \b ==> Space around words
+* \B ==> Non word boundary. i.e no space around word
 
-2. Character Class
-->[BHC]at 
-->[A-Z]
-->[a-z]
-->[0-9]
-->[e-s]
-->[A-Za-z0-9]
-->[E-Sa-j]
-->[A-Za-z248]
+# Regular Expressions - Practice these experessions on regex101.com
+### 1. Literal match
+* ->Python
+* ->Cat
+* ->at
+* ->python
 
-3. (exp|exp|exp)
-->(Cat|Hat|Rat)
-->(Mr|Ms)
-->(Mr|Ms)\. [A-Za-z]+
-->(Mr|Ms)\. ([A-Za-z]+)
+### 2. Character Class
+* ->[BHC]at 
+* ->[A-Z]
+* ->[a-z]
+* ->[0-9]
+* ->[e-s]
+* ->[A-Za-z0-9]
+* ->[E-Sa-j]
+* ->[A-Za-z248]
 
-4. gmail/ site matching from above string
-->[A-Za-z0-9]+@[a-z]+\.[a-z]+ 
-->[A-Za-z0-9]+\.[a-z]+\.[a-z]+
-->[A-Za-z0-9]+\.[a-z0-9]+\.[a-z]+
--> (www\.)?[A-Za-z0-9]+\.[a-z]+\.([a-z]+)?
+### 3. (exp|exp|exp)
+* ->(Cat|Hat|Rat)
+* ->(Mr|Ms)
+* ->(Mr|Ms)\. [A-Za-z]+
+* ->(Mr|Ms)\. ([A-Za-z]+)
 
-5. 
-->(Bat){2}
-->(Bat){2,3}
-->(Bat){3,}
+### 4. gmail/ site matching from above string
+* ->[A-Za-z0-9]+@[a-z]+\.[a-z]+ 
+* ->[A-Za-z0-9]+\.[a-z]+\.[a-z]+
+* ->[A-Za-z0-9]+\.[a-z0-9]+\.[a-z]+
+* -> (www\.)?[A-Za-z0-9]+\.[a-z]+\.([a-z]+)?
 
-6. Number Matching
-->[0-9]{10}
-->9[0-9]{9}
+### 5. 
+* ->(Bat){2}
+* ->(Bat){2,3}
+* ->(Bat){3,}
 
-7. Date Matching
-->[0-9]{4}-[0-9]{2}-[0-9]{2}
-->[12][0-9]{3}-[0-9]{2}-[0-9]{2}
-->[12][0-9]{3}[-\.][0-9]{2}[-\.][0-9]{2}
-->[12][0-9]{3}[-\.\/][0-9]{2}[-\.\/][0-9]{2}
-->[12][0-9]{3}[-\.\/]?[0-9]{2}[-\.\/]?[0-9]{2}
-->[12][0-9]{3}([-\.\/])?[0-9]{2}\1?[0-9]{2}
-->([12][0-9]{3})([-\.\/])?([0-9]{2})\2?([0-9]{2})
-->([12][0-9]{3})([-\.\/])?([0-9]{2})\2?\3(matches same month and same date value)
-->([12]\d{3})([-\.\/])?(\d{2})\2?\3
-->([12]\d{3})([-\.\/])?(\d{2})\2?(\d{2})
+### 6. Number Matching
+* ->[0-9]{10}
+* ->9[0-9]{9}
 
-8.
-->Rs \d+
-->Rs (\d+)
-->(?<=Rs )\d+(look behind)
-->(?<!Rs )\d+
-->\d+(?=kg)(look ahead)
+### 7. Date Matching
+* ->[0-9]{4}-[0-9]{2}-[0-9]{2}
+* ->[12][0-9]{3}-[0-9]{2}-[0-9]{2}
+* ->[12][0-9]{3}[-\.][0-9]{2}[-\.][0-9]{2}
+* ->[12][0-9]{3}[-\.\/][0-9]{2}[-\.\/][0-9]{2}
+* ->[12][0-9]{3}[-\.\/]?[0-9]{2}[-\.\/]?[0-9]{2}
+* ->[12][0-9]{3}([-\.\/])?[0-9]{2}\1?[0-9]{2}
+* ->([12][0-9]{3})([-\.\/])?([0-9]{2})\2?([0-9]{2})
+* ->([12][0-9]{3})([-\.\/])?([0-9]{2})\2?\3(matches same month and same date value)
+* ->([12]\d{3})([-\.\/])?(\d{2})\2?\3
+* ->([12]\d{3})([-\.\/])?(\d{2})\2?(\d{2})
 
-9.
-->(Mr|Ms|Mrs)\.?\s[A-Za-z]+
-->M[rs]\.?\s[A-Za-z]+
-->(?<=M[rs]\.\s)[A-Za-z]+
-->(?<=M[rs]\.\s)[A-Za-z]+|(?<=M[rs]\s)[A-Za-z]+
+### 8.
+* ->Rs \d+
+* ->Rs (\d+)
+* ->(?<=Rs )\d+(look behind)
+* ->(?<!Rs )\d+
+* ->\d+(?=kg)(look ahead)
 
-10. Anchor + bound
-->9\d{9}
-->^9\d{9}
-->9\d{9}$
-->^9\d{9}$
-->9\d{9}\b
+### 9.
+* ->(Mr|Ms|Mrs)\.?\s[A-Za-z]+
+* ->M[rs]\.?\s[A-Za-z]+
+* ->(?<=M[rs]\.\s)[A-Za-z]+
+* ->(?<=M[rs]\.\s)[A-Za-z]+|(?<=M[rs]\s)[A-Za-z]+
+
+### 10. Anchor + bound
+* ->9\d{9}
+* ->^9\d{9}
+* ->9\d{9}$
+* ->^9\d{9}$
+* ->9\d{9}\b
 ->\b9\d{9}
 ->\b9\d{9}\b
