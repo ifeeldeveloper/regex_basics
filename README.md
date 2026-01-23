@@ -32,45 +32,54 @@ abc.def.ghi.jkx
 * \* => Zero or more repetition of preceding regex
 * ? => Zero or one repetition of preceding regex
 
-\+ = {1, }
+## Repetitions or quantifier extended
+* \+ = {1, } => one or more repetitions
 
-? = {0, 1}
+* ? = {0, 1} => zero or one repetions
 
-\* = {0, }
+* \* = {0, } => zero or more repetitions
 
-## Group 
-* () -> default capturing group
-* (?:) -> non capturing group
+* {x} => number of x repetitions 
 
-## Look Ahead and Look Behind
-* look behind => eg. ```(?<=Rs )\d+```
-* look ahead => eg. ```\d+(?=kg)```
+* {x, y} => repetitions between x and y, both are inclusive
 
-## Special Character with special meaning
-* . => Matches any character except new line
-* \+ => ```[A-Za-z]+``` matches one or more
-* \* =>
-* ? => May or may not matches
-* ^ => Match happens at beginning of string 
-* $ => Match happens at the end of string
-* | => Matches regex expressions preceeding or following it
-* [...] => Matches range of values inside the given brackets (eg. ```[A-Za-Z0-9]```)
-* (...) => Provide regex inside it and Match for it
-* [^...] => Matches characters that doesn't matches regex inside bracket (eg. ```[^0-9]``` matches except numbers)
-* (R|S) => R and S are multiple regexes. Matches R or S
-* \ => escape character
-
-## Special Character section 2
+## Special Character
 * \t => Tab
 * \n => New Line
 * \d => Any digits between 0-9
 * \D => Any non-digit character or (```[^\d]```)
-* \s => White Space, Space, Tab, New Line
-* \S => Non White Space
-* \w => Any alphanumeric characters (A-Z,a-z,0-9)
-* \W => Non alphanumeric characters
+* \s => White Space Characters ( Space, Tab, New line )
+* \S => Non White Space Characters
+* \w => Any alphanumeric characters (A-Z,a-z,0-9,_) ( word characters )
+* \W => Non alphanumeric characters ( Non word characters )
 * \b => Space around words
 * \B => Non word boundary. i.e no space around word
+
+## Special Character with special meaning
+* . => Matches any character except new line
+* \+ => ```[A-Za-z]+``` matches one or more character
+* \* => matches zero or more characters
+* ? => May or may not matches ( matches zero or one character )
+* ^ => Match happens at beginning of string  ( Matching start )
+* $ => Match happens at the end of string ( Matching end )
+* | => Matches regex expressions preceeding or following it
+* [...] => Matches range of values inside the given brackets (eg. ```[A-Za-Z0-9]```) ( character class )
+* (...) => Provide regex inside it and Match for it ( group )
+* [^...] => Matches characters that doesn't matches regex inside bracket (eg. ```[^0-9]``` matches except numbers)
+* (R|S) => R and S are multiple regexes. Matches R or S
+* \ => escape character
+
+## Group 
+* () -> default capturing group
+* (?:) -> non capturing group
+* ``\bcat\b`` -> word boundary ( not in group but i placed here )
+* ``^\d\S{5}$`` -> matching start and end ( not in group bit i placed here )
+
+## Assertions (Look Ahead and Look Behind)
+* Positive look ahead => eg. ```\d+(?=kg)``` string = '**2**kg' => 2
+* Negative look ahead => eg. ```c(?!o)``` string = '**c**hocolate' => c
+* Positive look behind => eg. ```(?<=Rs )\d+``` string = 'Rs **200**' => 200
+* Negative look behind => eg. ```(?<![a-z])[aeiou]``` string = 'he1**o**' => o
 
 # Regular Expressions - Practice these on regex101.com
 ### 1. Literal match
@@ -81,7 +90,7 @@ abc.def.ghi.jkx
 
 ### 2. Character Class
 * ```[BHC]at```
-* ```[A-Z]```
+* ```[^A-Z]```
 * ```[a-z]```
 * ```[0-9]```
 * ```[e-s]```
@@ -101,7 +110,7 @@ abc.def.ghi.jkx
 * ```[A-Za-z0-9]+\.[a-z0-9]+\.[a-z]+```
 *  ```(www\.)?[A-Za-z0-9]+\.[a-z]+\.([a-z]+)?```
 
-### 5. 
+### 5. Repetitions
 * ```(Bat){2}```
 * ```(Bat){2,3}```
 * ```(Bat){3,}```
@@ -122,14 +131,14 @@ abc.def.ghi.jkx
 * ```([12]\d{3})([-\.\/])?(\d{2})\2?\3```
 * ```([12]\d{3})([-\.\/])?(\d{2})\2?(\d{2})```
 
-### 8.
+### 8. Assertions 
 * ```Rs \d+```
 * ```Rs (\d+)```
 * ```(?<=Rs )\d+``` (look behind)
 * ```(?<!Rs )\d+```
 * ```\d+(?=kg)``` (look ahead)
 
-### 9.
+### 9. 
 * ```(Mr|Ms|Mrs)\.?\s[A-Za-z]+```
 * ```M[rs]\.?\s[A-Za-z]+```
 * ```(?<=M[rs]\.\s)[A-Za-z]+```
@@ -143,6 +152,9 @@ abc.def.ghi.jkx
 * ```9\d{9}\b```
 * ```\b9\d{9}```
 * ```\b9\d{9}\b```
+
+### 11. Backreference
+* ```([12][0-9]{3})([-\.\/])?([0-9]{2})\2?\3``` (matches same month and same date value)
 
 # Regex Exercises with questions
 1. Match the word "cat" in a sentence. (Example text: "The cat sat on the mat.“)
