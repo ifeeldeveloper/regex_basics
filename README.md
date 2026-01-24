@@ -170,7 +170,7 @@ abc.def.ghi.jkx
 6. Match phone numbers in the format (+977) 456-7890 (+977 9868-888-764)
 * rgx >> ```\+977 \d{4}-\d{3}-\d{3}```
 7. Match string that starts with hello at beginning of line
-* rgx >> ```^[Hh][a-z]+```
+* rgx >> ```^[Hh]ello\b```
 8. Match word that ends with ing. [Match word only ensuring ing is after it]
 * rgx >> ```\b[A-Za-z]+ing\b```
 9. You have a document with text: 12kg, 14m, 34kg … . Capture weights from it
