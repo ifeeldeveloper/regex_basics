@@ -174,7 +174,7 @@ abc.def.ghi.jkx
 8. Match word that ends with ing. [Match word only ensuring ing is after it]
 * rgx >> ```\b[A-Za-z]+ing\b```
 9. You have a document with text: 12kg, 14m, 34kg … . Capture weights from it
-* rgx >> ```\d+(?=kg|m)```
+* rgx >> ```\d+(?=kg)```
 10. You have a html document. Match tag names on it. Example: div, a, p
 * rgx >> ```(?<=<\/)[a-zA-Z]+[0-9]*(?=>)```
 11. You can have numbers as 9843468713 / 984-3468-713 / +9779843468713. Capture all phone
